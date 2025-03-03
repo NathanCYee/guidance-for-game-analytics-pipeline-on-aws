@@ -1,0 +1,22 @@
+{
+    "name": "game-analytics-api-event-handler",
+    "description": "The events processor microservice for the game analytics pipeline solution",
+    "main": "index.js",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "@aws-sdk/client-kinesis": "^3.731.0",
+        "@aws-sdk/client-firehose": "^3.731.0"
+
+    },
+    "devDependencies": {
+        "@aws-sdk/client-kinesis": "^3.731.0",
+        "@aws-sdk/client-firehose": "^3.731.0"
+    },
+    "scripts": {
+        "build:init": "rm -rf package-lock.json && rm -rf dist && rm -rf node_modules",
+        "build:zip": "zip -rq event-handler.zip .",
+        "build:dist": "mkdir dist && mv event-handler.zip dist/",
+        "build": "npm run build:init && npm install --production && npm run build:zip && npm run build:dist"
+    }
+}
